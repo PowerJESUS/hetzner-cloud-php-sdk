@@ -41,6 +41,7 @@ If you discover any security related issues, please email kontakt@lukas-kaemmerl
 ## Credits
 
 - [Lukas Kämmerling](https://github.com/lkdevelopment)
+- [Balázs Otakomaiya](https://github.com/PowerJESUS)
 - [All Contributors](../../contributors)
 
 ## License
