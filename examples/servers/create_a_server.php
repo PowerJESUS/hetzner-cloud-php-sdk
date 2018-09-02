@@ -1,14 +1,10 @@
 <?php
 require_once __DIR__ . '/../bootstrap.php';
-/*
- * Prepare objects
- */
-$serverType = $hetznerClient->serverTypes()->get(1); //CX11
+
+
+$serverType = $hetznerClient->serverTypes()->get(1);
 $location = $hetznerClient->locations()->all('fsn1')[0];
 $image = $hetznerClient->images()->all('ubuntu-18.04')[0];
-/*
- * Send API call
- */
 $apiResponse = $hetznerClient->servers()->createInLocation('my-example-server.test', $serverType, $image, $location);
 $server = $apiResponse->getResponsePart('server');
 $action = $apiResponse->getResponsePart('action');
