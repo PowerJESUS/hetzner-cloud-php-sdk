@@ -11,6 +11,7 @@ namespace LKDev\HetznerCloud\Models\Servers;
 use LKDev\HetznerCloud\APIResponse;
 use LKDev\HetznerCloud\HetznerAPIClient;
 use LKDev\HetznerCloud\Models\Actions\Action;
+use LKDev\HetznerCloud\Models\Actions\Metrics;
 use LKDev\HetznerCloud\Models\Datacenters\Datacenter;
 use LKDev\HetznerCloud\Models\Images\Image;
 use LKDev\HetznerCloud\Models\ISOs\ISO;
@@ -483,8 +484,12 @@ class Server extends Model
      */
     public function metrics(string $type, string $start, string $end, int $step = null)
     {
-        // ToDo
-        $this->httpClient->get($this->replaceServerIdInUri('servers/{id}/metrics?') . http_build_query(compact('type', 'start', 'end', 'step')));
+        $response = $this->httpClient->get($this->replaceServerIdInUri('servers/{id}/metrics?') . http_build_query(compact('type', 'start', 'end', 'step')));
+        if (!HetznerAPIClient::hasError($response)) {
+            return APIResponse::create([
+                'metrics' => Metrics::parse(json_decode((string)$response->getBody())->metrics)
+            ]);
+        }
     }
 
     /**
