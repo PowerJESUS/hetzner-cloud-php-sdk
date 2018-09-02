@@ -1,6 +1,6 @@
 {
-  "name": "lkdevelopment/hetzner-cloud-php-sdk",
-  "description": "A inofficial PHP SDK for the Hetzner Cloud API.",
+  "name": "powerjesus/hetzner-cloud-php-sdk",
+  "description": "An unofficial PHP SDK for the Hetzner Cloud API.",
   "type": "library",
   "require": {
     "php": ">=7.0.0",
@@ -18,6 +18,10 @@
     {
       "name": "Lukas Kämmerling",
       "email": "kontakt@lukas-kaemmerling.de"
+    },
+    {
+      "name": "Balázs Otakomaiya",
+      "email": "balazs@vervedev.com"
     }
   ],
   "autoload": {
